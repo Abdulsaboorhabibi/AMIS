@@ -1,0 +1,109 @@
+{% extends "base/main.html" %} 
+{% block title %}{{object.title|truncatechars:20}}{% endblock title %}
+{%block content %}
+<div class="container">
+
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+  <div class="row">
+    <div class="col-12 fw-medium text-center">
+      <div class="row">
+        <a href="{% url "mande:index_mande" %}" >back</a>
+        <h1 class="text-capitalize text-start col-11">{{object.title}}</h1>
+        </div>
+        <hr/>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <div class="col-12 ">
+    <div class="row">
+      <!-- <div class="col-2 fw-bold text-end">Sector:</div>
+      <div class="col-10">{{object.sector}}</div> -->
+
+      <ul class="list-unstyled fw-bold">
+        <li>Sector: {{object.sector}}</li>
+        <li>Location: {{object.location}}- {{object.location.province}}</li>
+        <li>Donor: {{object.donor}}</li>
+        <li>Duration: {{object.start_date}} - {{object.end_date}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+ <hr/>
+
+  <!-- Beneficiary Category-->
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+<div class="row">
+  <p class="col-3 fs-4">Beneficiary Category:</p>
+  <div class="col-9">
+    {% if object.idp == True %}
+    <p class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">IDP</p>
+    {% endif %}
+    {% if object.idp_returnee == True %}
+    <p class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">IDP/Returnee</p>
+    {% endif %}
+    {% if object.refugee == True %}
+    <p class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Refugee</p>
+    {% endif %}
+    {% if object.host == True %}
+    <p class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Host</p>
+    {% endif %}
+    {% if object.kochi == True %}
+    <p class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Kochi</p>
+    {% endif %}
+
+  </div>
+</div>
+
+<hr />
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <!-- Beneficiary compositions -->
+
+  <div class="row">
+    <div class="col-3 fs-4">Beneficiary compositions:</div>
+    <div class="col-9">
+      {% if object.male %}
+      <span class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Male</span>
+      {% endif %}
+      {% if object.female %}
+      <span class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Female</span>
+      {% endif %}
+      {% if object.childern %}
+      <span class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">Childern</span>
+      {% endif %}
+      {% if object.plw %}
+      <span class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">PLW</span>
+      {% endif %}
+      {% if object.pwd %}
+      <span class="badge text-bg-primary rounded m-1 px-5 fs-4 py-3 font-monospace">PWD</span>
+      {% endif %}
+     
+    </div>
+  </div>
+  <hr/>
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+<!-- Status of the Project -->
+  <div class="bg-primary-subtle rounded p"> 
+      OVERALL STATUS:
+      <span class="fs-5">
+      {{object.get_overall_Status_display}}
+    </span>
+  </div>
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+
+<hr/>
+
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+
+  
+</div>
+{% endblock content %}
