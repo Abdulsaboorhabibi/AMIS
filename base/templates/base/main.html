@@ -1,190 +1,178 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %} | ACHRO IMS</title>
-
-    <!-- bootstrap cdn link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
   </head>
+
   <body>
     <!-- the top bar her -->
-    <div class="container-fluid bg-dark d-print-none">
-      <div class="container row m-auto justify-content-around p-3 text-center">
-        <div class="col-sm-12 col-md-4 text-white">
-          Add: Kushal Khan Mena Kabul AFG
-        </div>
-        <div class="col-sm-12 col-md-4 text-white">
-          Mobile: +93 (0) 786 311 363
-        </div>
-        <div class="col-sm-12 col-md-4 text-white">Email: info@Achro.org</div>
+    <div class="bg-blue-900">
+      <div
+        class="grid grid-flow-auto gap-2 sm:grid-cols-1 md:grid-cols-3 text-white py-2 px-10"
+      >
+        <p class="text-center">Add: Kushal Khan Mena Kabul AFG</p>
+        <p class="text-center">Mobile: +93 (0) 786 311 363</p>
+        <p class="text-center">Email: info@Achro.org</p>
       </div>
     </div>
-    <!-- end of top bar -->
 
-    <!-- start of the navbar and header -->
-    <header class="p-3 mb-3 border-bottom d-print-none">
-      <div class="container">
-        <div
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-        >
-          <a
-            href="/"
-            class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none d-print-none"
-          >
-            <div class="d-flex flex-row align-items-center">
-              <svg
-                class="w-6 h-6 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M17.537 12.625a4.421 4.421 0 0 0 2.684 4.047 10.96 10.96 0 0 1-1.384 2.845c-.834 1.218-1.7 2.432-3.062 2.457-1.34.025-1.77-.794-3.3-.794-1.531 0-2.01.769-3.275.82-1.316.049-2.317-1.318-3.158-2.532-1.72-2.484-3.032-7.017-1.27-10.077A4.9 4.9 0 0 1 8.91 6.884c1.292-.025 2.51.869 3.3.869.789 0 2.27-1.075 3.828-.917a4.67 4.67 0 0 1 3.66 1.984 4.524 4.524 0 0 0-2.16 3.805m-2.52-7.432A4.4 4.4 0 0 0 16.06 2a4.482 4.482 0 0 0-2.945 1.516 4.185 4.185 0 0 0-1.061 3.093 3.708 3.708 0 0 0 2.967-1.416Z"
-                />
-              </svg>
-
-              <p class="fs-5 fw-bold text-center mb-0 px-1">ACHRO IMS</p>
-            </div>
-          </a>
-
-          <ul
-            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-          >
+    <!-- Header -->
+    <header class="bg-gray-800 text-white">
+      <div
+        class="container mx-auto py-4 flex justify-between items-center px-4"
+      >
+        <a href="/" class="text-xl font-bold">ACHRO MIS</a>
+        <!-- Desktop Navbar -->
+        <nav class="hidden lg:block">
+          <ul class="flex space-x-4">
             <li>
-              <a
-                href="{% url 'base:about' %}"
-                class="nav-link px-2 link-body-emphasis fw-semibold"
+              <div class="cursor-pointer relative" onClick="showDropdown()">
+                Services
+              </div>
+              <div
+                class="hidden rounded border-1 bg-gray-800 px-8 absolute top-28 w-[150px] p-1"
+                id="DropdownList"
+              >
+                <div class="w-full">
+                  <ul class="m-0 p-0 text-left">
+                    <li class="hover:text-blue-500">
+                      <a href="/" class="w-full">Assets</a>
+                    </li>
+                    <li class="hover:text-blue-500">
+                      <a href="{% url 'mande:index' %}" class="w-full"
+                        >M &amp; E</a
+                      >
+                    </li>
+                    <li class="hover:text-blue-500">
+                      <a href="{% url 'base:about' %}" class="w-full">Others</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="{% url 'base:about' %}" class="hover:text-gray-300"
                 >About</a
               >
             </li>
             <li>
-              <a
-                href="{% url 'base:contact' %}"
-                class="nav-link px-2 link-body-emphasis fw-semibold"
+              <a href="{% url 'base:contact' %}" class="hover:text-gray-300"
                 >Contact</a
               >
             </li>
-            <li>
-              <!-- services here -->
-              <div class="dropdown text-end">
-                <a
-                  href="#"
-                  class="d-block link-body-b text-decoration-none dropdown-toggle nav-link px-2 link-body-emphasis fw-semibold"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Services
-                </a>
-                <ul class="dropdown-menu text-small" style="">
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      href="{% url 'mande:index_mande' %}"
-                      >Assets</a
-                    >
-                  </li>
-                  <li><a class="dropdown-item" href="#">M &amp;E</a></li>
-                  <li><a class="dropdown-item" href="#">HR</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Others</a></li>
-                </ul>
-              </div>
+            <!-- Profile Dropdown -->
+            <li class="relative">
+              <button
+                id="profile-btn"
+                class="flex items-center space-x-2 text-gray-300 focus:outline-none"
+              >
+                <img
+                  src="https://via.placeholder.com/40"
+                  alt="Profile Picture"
+                  class="w-8 h-8 rounded-full"
+                />
+                <span class="hidden lg:inline">John Doe</span>
+                <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 14.586l-4.293-4.293a1 1 0 0 1 1.414-1.414L12 11.758l3.879-3.879a1 1 0 0 1 1.414 1.414L12 14.586z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+              <!-- Dropdown Menu (hidden by default) -->
+              <ul
+                id="profile-dropdown"
+                class="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg hidden"
+              >
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-700"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-700"
+                    >Settings</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-700"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
             </li>
           </ul>
-
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input
-              type="search"
-              class="form-control"
-              placeholder="Search..."
-              aria-label="Search"
-            />
-          </form>
-
-          <div class="dropdown text-end">
-            <a
-              href="#"
-              class="d-block link-body-b text-decoration-none dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <svg
-                class="w-6 h-6 dark:text-white rounded-circle"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
-            <ul class="dropdown-menu text-small" style="">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
+        </nav>
+        <!-- Mobile Menu Icon -->
+        <div class="block lg:hidden">
+          <button
+            id="mobile-menu-btn"
+            class="text-white focus:outline-none focus:text-white focus:bg-gray-700"
+          >
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path
+                fill-rule="evenodd"
+                d="M4 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden bg-gray-700 text-white text-center py-2 mt-2 rounded-md shadow hidden"
+      >
+        <a href="#" class="block py-1 hover:bg-gray-600">Services</a>
+        <a href="{% url 'base:about' %}" class="block py-1 hover:bg-gray-600"
+          >About</a
+        >
+        <a href="#" class="block py-1 hover:bg-gray-600">Contact</a>
+        <!-- Profile Dropdown (mobile) -->
+        <div class="mt-3">
+          <a href="#" class="block py-1 hover:bg-gray-600">Profile</a>
+          <a href="#" class="block py-1 hover:bg-gray-600">Settings</a>
+          <a href="#" class="block py-1 hover:bg-gray-600">Logout</a>
         </div>
       </div>
     </header>
-    <!-- end of the header -->
 
-    <!-- main container -->
-    <main>{% block content %}{% endblock content %}</main>
-    <!-- end of main -->
+    <!-- Content -->
+    <main class="container mx-auto py-8 bg-gray-200 min-h-screen space-x-1">
+      {%block content %}{% endblock content %}
+    </main>
 
-    <!-- footer start -->
-
-    <footer class="py-3 my-4 d-print-none">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-          <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
-        </li>
-        <li class="nav-item">
-          <a
-            href="{% url 'base:about' %}"
-            class="nav-link px-2 text-body-secondary"
-            >About</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            href="{% url 'base:contact' %}"
-            class="nav-link px-2 text-body-secondary"
-            >Contact</a
-          >
-        </li>
-        <li class="nav-item">
-          <a href="/" class="nav-link px-2 text-body-secondary">FAQs</a>
-        </li>
-      </ul>
-      <p class="text-center text-body-secondary">
-        &copy; {% now 'Y' %} ACHRO. All Rights Reserved.
-      </p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+      <p>&copy; 2024 Your Company. All rights reserved.</p>
     </footer>
-    <!-- end of footer -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Script to toggle mobile menu and profile dropdown -->
+    <script>
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+      document
+        .getElementById("profile-btn")
+        .addEventListener("click", function () {
+          document
+            .getElementById("profile-dropdown")
+            .classList.toggle("hidden");
+        });
+
+      // show the right items for services
+      function showDropdown() {
+        document.querySelector("#DropdownList").classList.toggle("hidden");
+      }
+    </script>
   </body>
 </html>
