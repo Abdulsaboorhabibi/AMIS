@@ -8,8 +8,9 @@ from . import models
 
 # list of all Projects 
 class ListProject(LoginRequiredMixin, ListView):
+    paginate_by = 2
     model = models.ProjectModel
-    paginate_by = 10
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["count"] = models.ProjectModel.objects.count()

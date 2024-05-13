@@ -34,7 +34,7 @@
                 Services
               </div>
               <div
-                class="hidden rounded border-1 bg-gray-800 px-8 absolute top-28 w-[150px] p-1"
+                class="hidden z-50 shadow-md rounded border-1 bg-gray-800 px-8 absolute top-28 w-[150px] p-1"
                 id="DropdownList"
               >
                 <div class="w-full">
@@ -144,13 +144,13 @@
     </header>
 
     <!-- Content -->
-    <main class="container mx-auto py-8 bg-gray-200 min-h-screen space-x-1">
+    <main class="p-2">
       {%block content %}{% endblock content %}
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white text-center py-4">
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
+      <p>&copy; {% now 'Y' %} Your Company. All rights reserved.</p>
     </footer>
 
     <!-- Script to toggle mobile menu and profile dropdown -->
