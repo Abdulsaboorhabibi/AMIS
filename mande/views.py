@@ -15,6 +15,8 @@ class ListProject(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["count"] = models.ProjectModel.objects.count()
         context["using"] = models.ProjectModel.objects.filter(overall_Status="C").count()
+        context["Processing"] = models.ProjectModel.objects.filter(overall_Status="P").count()
+        context["Pendding"] = models.ProjectModel.objects.filter(overall_Status="PN").count()
         return context
     
 

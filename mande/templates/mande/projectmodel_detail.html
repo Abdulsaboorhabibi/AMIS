@@ -1,34 +1,28 @@
 {% extends "base/main.html" %} 
 {% block title %}{{object.title|truncatechars:20}}{% endblock title %}
 {%block content %}
-<div class="container">
-
 
   <!-- -------------------------------------------------------------------------------------------------------  -->
 
-  <div class="row">
-    <div class="col-12 fw-medium text-center">
-      <div class="row">
-        <a href="{% url "mande:index" %}" >back</a>
-        <h1 class="text-capitalize text-start col-11">{{object.title}}</h1>
+      <div class="flex justify-start items-center px-10 py-10 bg-blue-300">
+        <a href="{% url "mande:index" %}" class="w-10 h-10 bg-blue-500 flex justify-center items-center rounded shadow print:hidden">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+        </a>
+        <h1 class="text-capitalize text-blue-800 text-center text-xl md:text-2xl lg:text-4xl font-bold px-5">{{object.title | title }}</h1>
         </div>
         <hr/>
-    </div>
-  </div>
 
   <!-- -------------------------------------------------------------------------------------------------------  -->
-  <div class="col-12 ">
-    <div class="row">
-      <!-- <div class="col-2 fw-bold text-end">Sector:</div>
-      <div class="col-10">{{object.sector}}</div> -->
-
-      <ul class="list-unstyled fw-bold">
-        <li>Sector: {{object.sector}}</li>
-        <li>Location: {{object.location}}- {{object.location.province}}</li>
-        <li>Donor: {{object.donor}}</li>
-        <li>Duration: {{object.start_date}} - {{object.end_date}}</li>
+  <div class="p-10">
+      <ul class="list-unstyled font-medium">
+        <li><span class="font-bold pr-3">Sector:</span>{{object.sector}}</li>
+        <li><span class="font-bold pr-3">Location:</span>{{object.location.district | title }}- {{object.location.province | title }}</li>
+        <li><span class="font-bold pr-3">Donor:</span>{{object.donor | upper }}</li>
+        <li><span class="font-bold pr-3">Duration:</span>{{object.start_date}} - {{object.end_date}}</li>
       </ul>
-    </div>
+
   </div>
 
   <!-- -------------------------------------------------------------------------------------------------------  -->
@@ -104,6 +98,5 @@
   <!-- -------------------------------------------------------------------------------------------------------  -->
 
 
-  
-</div>
+
 {% endblock content %}

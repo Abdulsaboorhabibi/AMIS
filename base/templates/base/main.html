@@ -10,7 +10,7 @@
 
   <body>
     <!-- the top bar her -->
-    <div class="bg-blue-900">
+    <div class="bg-blue-900 print:hidden">
       <div
         class="grid grid-flow-auto gap-2 sm:grid-cols-1 md:grid-cols-3 text-white py-2 px-10"
       >
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Header -->
-    <header class="bg-gray-800 text-white">
+    <header class="bg-gray-800 text-white print:hidden">
       <div
         class="container mx-auto py-4 flex justify-between items-center px-4"
       >
@@ -149,7 +149,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4">
+    <footer class="bg-gray-800 print:hidden text-white text-center py-4">
       <p>&copy; {% now 'Y' %} Your Company. All rights reserved.</p>
     </footer>
 

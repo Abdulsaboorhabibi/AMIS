@@ -2,7 +2,11 @@
 module.exports = {
   content: ["../../AMIS/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        print:{ raw : 'print' }
+      }
+    },
   },
   plugins: [
     // use form plugins

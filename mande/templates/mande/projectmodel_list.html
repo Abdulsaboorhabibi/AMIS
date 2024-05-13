@@ -2,8 +2,16 @@
 {% block content %}
 
 <!-- header of the project page -->
-<div class="bg-blue-700 text-white text-center py-8 text-5xl shadow-md align-middle">
-  <h1 class="font-bold">ACHRO Projects List</h1>
+<div class="bg-blue-700 shadow-md flex justify-between items-center px-10">
+  <h1 class="font-bold  text-white text-center py-6 text-5xl">ACHRO Projects List</h1>
+  <a href="#">
+    <div  class="w-auto h-10 py-6 px-10  text-gray-800 dark:text-white bg-blue-600 flex justify-between items-center rounded shadow-md">
+      <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      <p clas="px-10 text-xl text-blue-100">Add Project</p>    
+    </div>
+  </a>
 </div>
 
 <table class="min-w-full divide-y divide-gray-200 overflow-x-auto px-2">
@@ -39,19 +47,19 @@
           <td class="px-6 py-4 whitespace-nowrap">
 
             {% if project.overall_Status == "N" %}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"> Not Started</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-yellow-100 text-yellow-800"> Not Started</span>
             {% elif project.overall_Status == "S"%}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> ON Start</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-green-100 text-green-800"> ON Start</span>
             {% elif project.overall_Status == "P"%}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-Purple-100 text-purple-800"> Active</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-Purple-100 text-purple-800"> Active</span>
             {% elif project.overall_Status == "C"%}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-600 text-green-100"> Completed</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-green-600 text-green-100"> Completed</span>
             {% elif project.overall_Status == "PN"%}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"> Pendding</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-yellow-100 text-yellow-800"> Pendding</span>
             {% elif project.overall_Status == "CN"%}
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Cancelled</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-green-100 text-green-800"> Cancelled</span>
             {% else %} 
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Not selected</span>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full shadow-md bg-green-100 text-green-800"> Not selected</span>
             {% endif %}
 
              
@@ -75,8 +83,8 @@
     <tr class="bg-blue-200 m-10 divide-y rounded-md text-gray-800">
       <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">All Projects: {{count}}</td>
       <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Completed Projects: {{using}}</td>
-      <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Processing Projects: {{using}}</td>
-      <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Pending Projects: {{using}}</td>
+      <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Processing Projects: {{Processing}}</td>
+      <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Pending Projects: {{Pendding}}</td>
 
       <td scope="col" class="px-3 py-2 whitespace-nowrap  text-sm font-normal text-center flex justify-center items-center bg-blue-400 rounded m-2">
           {% if page_obj.has_previous %}   
