@@ -24,13 +24,13 @@ class ListProject(LoginRequiredMixin, ListView):
 # detail project 
 class DetailProject(DetailView):
     model = models.Project
-    paginate = 3
+    paginate = 1
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         project = self.get_object()
-        monitor = models.MonitorProject.objects.filter(project=project)
-        paginator = Paginator(monitor, self.paginate)
+        monitors = models.MonitorProject.objects.filter(project=project)
+        paginator = Paginator(monitors, self.paginate)
 
         page_number = self.request.GET.get('page')
         page_obj = paginator.get_page(page_number)
