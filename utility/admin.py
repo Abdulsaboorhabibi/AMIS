@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import LocationModel, DonorModel, SectorModel
+from .models import Location, Donor, Sector
 
-admin.site.register(LocationModel)
-admin.site.register(DonorModel)
-admin.site.register(SectorModel)
+admin.site.register(Location)
+admin.site.register(Donor)
+admin.site.register(Sector)

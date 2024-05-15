@@ -3,23 +3,38 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 from . import models
 
 # list of all Projects 
 class ListProject(LoginRequiredMixin, ListView):
-    paginate_by = 2
-    model = models.ProjectModel
+    paginate_by = 1
+    model = models.Project
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["count"] = models.ProjectModel.objects.count()
-        context["using"] = models.ProjectModel.objects.filter(overall_Status="C").count()
-        context["Processing"] = models.ProjectModel.objects.filter(overall_Status="P").count()
-        context["Pendding"] = models.ProjectModel.objects.filter(overall_Status="PN").count()
+        context["count"] = models.Project.objects.count()
+        context["using"] = models.Project.objects.filter(overall_Status="C").count()
+        context["Processing"] = models.Project.objects.filter(overall_Status="P").count()
+        context["Pendding"] = models.Project.objects.filter(overall_Status="PN").count()
         return context
     
 
 # detail project 
 class DetailProject(DetailView):
-    model = models.ProjectModel
+    model = models.Project
+    paginate = 3
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project = self.get_object()
+        monitor = models.MonitorProject.objects.filter(project=project)
+        paginator = Paginator(monitor, self.paginate)
+
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context['page_obj'] = page_obj
+        return context
+    

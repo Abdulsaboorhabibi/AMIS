@@ -1,0 +1,172 @@
+{% extends "base/main.html" %} 
+{% block title %}{{object.title|truncatechars:20}}{% endblock title %}
+{%block content %}
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+      <div class="flex justify-start items-center px-10 py-10 bg-blue-300">
+        <a href="{% url "mande:index" %}" class="w-10 h-10 bg-blue-500 flex justify-center items-center rounded shadow print:hidden">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+        </a>
+        <h1 class="text-capitalize text-blue-800 text-center text-xl md:text-2xl lg:text-4xl font-bold px-5">{{object.title | title }}</h1>
+        </div>
+        <hr/>
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <div class="p-10">
+      <ul class="list-unstyled font-medium">
+        <li><span class="font-bold pr-3">Sector:</span>{{object.sector}}</li>
+        <li><span class="font-bold pr-3">Location:</span>{{object.location.district | title }}- {{object.location.province | title }}</li>
+        <li><span class="font-bold pr-3">Donor:</span>{{object.donor | upper }}</li>
+        <li><span class="font-bold pr-3">Duration:</span>{{object.start_date}} - {{object.end_date}}</li>
+      </ul>
+
+  </div>
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+ <hr/>
+
+  <!-- Beneficiary Category-->
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+    <div class="flex flex-col justify-center items-start px-10 py-2">
+          <p class="text-xl font-bold ">Beneficiary Category:</p>
+          <div class="flex flex-row ml-20 ">
+            {% if object.idp == True %}
+              <p class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">IDP</p>
+            {% endif %}
+            {% if object.idp_returnee == True %}
+              <p class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm ">IDP/Returnee</p>
+            {% endif %}
+            {% if object.refugee == True %}
+              <p class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm ">Refugee</p>
+            {% endif %}
+            {% if object.host == True %}
+              <p class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm ">Host</p>
+            {% endif %}
+            {% if object.kochi == True %}
+              <p class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm ">Kochi</p>
+            {% endif %}
+          </div>
+    </div>
+
+<hr />
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <!-- Beneficiary compositions -->
+
+  <div class="flex flex-col justify-center items-start px-10 py-2">
+    <div class="text-xl font-bold">Beneficiary compositions:</div>
+    <div class="flex flex-row ml-20">
+      {% if object.male %}
+        <span class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">Male</span>
+      {% endif %}
+      {% if object.female %}
+        <span class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">Female</span>
+      {% endif %}
+      {% if object.childern %}
+        <span class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">Childern</span>
+        {% if object.childern_age %}
+          <div class="flex flex-col justify-center items-center">
+            <p class="text-xs bg-blue-300 rounded-full text-blue-800 shadow-md drop-shadow-md px-2 py-2">Age 
+              <span class="text-xs px-3 text-red-500 drop-shadow-md">{{object.childern_age}}</span></p>
+          </div>
+        {% endif %}
+      {% endif %}
+      {% if object.plw %}
+        <span class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">PLW</span>
+      {% endif %}
+      {% if object.pwd %}
+        <span class="text-md drop-shadow-md py-1 font-medium font-mono px-10 bg-blue-300 m-3 rounded-full shadow-sm">PWD</span>
+      {% endif %}
+     
+    </div>
+  </div>
+  <hr/>
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+<!-- Status of the Project -->
+  <div class="rounded px-10 py-5 bg-blue-200 text-center shadow-sm my-10 text-xl font-bold"> 
+      <span class="text-blue-800">OVERALL STATUS:</span> 
+      <span class="text-md bg-blue-700 px-10 py-3 rounded-full text-white drop-shadow-sm shadow-sm">
+      {{object.get_overall_Status_display}}
+    </span>
+  </div>
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+
+<hr/>
+
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <p>This is the monitors</p>    
+  {% for visit in visits %}
+        <p>{{visit}}</p>
+      {% endfor %}
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+  <div class="bg-blue-50 py-16 print:hidden">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-blue-950 mb-8">Project Visits</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {% for visit in monitor %}
+            <div class="bg-blue-100 divide-blue-100 rounded-lg shadow-lg p-8">
+                <div class="relative overflow-hidden">
+                    <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">View Product</button>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mt-4">{{visit.get_progress_status_display}}</h3>
+                <p class="text-gray-500 text-sm mt-2">{{visit.description}}</p>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-gray-900 font-bold text-lg">{{visit.pregress_percentage}}%</span>
+                    <button class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Add to Cart</button>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+<section>
+  <h1>{{ object.name }} Detail</h1>
+    <!-- Display project details -->
+    <p>Project Name: {{ object.name }}</p>
+    <!-- Display monitors -->
+    <h2>Monitors</h2>
+    <ul>
+        {% for monitor in page_obj %}
+            <li>{{ monitor.pregress_percentage }}</li>
+        {% empty %}
+            <li>No monitors found for this project</li>
+        {% endfor %}
+    </ul>
+ 
+ 
+  {% if page_obj.has_other_pages %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
+</section>
+
+
+{% endblock content %}
