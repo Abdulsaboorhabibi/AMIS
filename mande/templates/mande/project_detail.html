@@ -100,24 +100,30 @@
   <!-- -------------------------------------------------------------------------------------------------------  -->
   <div class="bg-blue-50 py-16 print:hidden">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-blue-950 mb-8">Project Visits</h2>
+        <div class="flex flex-row justify-between items-center">
+          <h2 class="text-3xl font-bold text-blue-950 mb-8">Project Visits</h2>
+          <a href="#" class="bg-blue-700 text-white text-sm font-semibold px-8 py-3 shadow-md rounded drop-shadow">Add Monitor</a>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {% for monitor in page_obj %}
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <div class="relative overflow-hidden">
-                    <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product">
-                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                  <div></div>  
+                  <div class="absolute inset-0 bg-black opacity-40"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <button class="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">{{monitor.doc | date}}</button>
                     </div>
                 </div>
+                <h2>{{monitor.doc}}</h2>
                 <h3 class="text-xl font-bold text-gray-900 mt-4">{{monitor.get_progress_status_display | title }}</h3>
                 <p class="text-gray-500 text-sm mt-2">{{monitor.description}}</p>
                 <div class="flex items-center justify-between mt-4">
                     <span class="text-gray-900 font-bold text-lg">{{monitor.pregress_percentage}}%</span>
-                    <button class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Add to Cart</button>
+                    <button class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Edit</button>
                 </div>
             </div>
+            {% empty %}
+              <p class="text-sm text-gray-500 mt-3">No Monitor availible.</p>
             {% endfor %}
         </div>
 
