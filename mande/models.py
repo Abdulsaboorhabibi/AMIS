@@ -13,7 +13,7 @@ def six_month_after_now():
 
 class Project(models.Model):
 
-    OVERALL_STATUS_CHOICES = [
+    PROJECT_OVERALL_STATUS_CHOICES = [
         ('N','Not Started'),
         ('S', 'On Start'),
         ('P', 'In Progress'),
@@ -37,12 +37,11 @@ class Project(models.Model):
     male = models.BooleanField(default=False, verbose_name="Male")
     female = models.BooleanField(default=False, verbose_name="Female")
     childern = models.BooleanField(default=False, verbose_name="Childern")
-    childern_age_from = models.CharField(max_length=10, verbose_name="Childer Start age", blank=True, null=True)
-    childern_age_end = models.CharField(max_length=10, verbose_name="Childer End age", blank=True, null=True)
+    childern_age_from = models.IntegerField(verbose_name="Childer Start age", validators=[MinValueValidator(0), MaxValueValidator(20)], blank=True, null=True)
+    childern_age_end = models.IntegerField(verbose_name="Childer End age", validators=[MinValueValidator(0), MaxValueValidator(20)], blank=True, null=True)
     plw = models.BooleanField(default=False, verbose_name="PLW")
     pwd = models.BooleanField(default=False, verbose_name="PWd")
-    overall_Status = models.CharField(max_length=50, choices=OVERALL_STATUS_CHOICES, default=OVERALL_STATUS_CHOICES, verbose_name="Overall Status")
-    Major_Activity = models.TextField(max_length=1000, verbose_name="Major Activity / Delivery")
+    overall_Status = models.CharField(max_length=50, choices=PROJECT_OVERALL_STATUS_CHOICES, default=PROJECT_OVERALL_STATUS_CHOICES, verbose_name="Overall Status")
     remarks = models.TextField(max_length=300, blank=True, null=True)
     doc = models.DateField(auto_now_add=True)
     dou = models.DateField(auto_now=True)
@@ -74,7 +73,7 @@ class MonitorProject(models.Model):
         ('NS', 'Lag Behind Plane'),
         ('E', 'Execute Plane'),
     ]
-
+    activity = models.CharField(max_length=255)
     project = models.ForeignKey(Project, models.CASCADE, verbose_name="Project")
     slug = models.SlugField(max_length=100, unique=True, verbose_name="slug")
     pregress_percentage = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)], verbose_name="Progress Percentage(%)")

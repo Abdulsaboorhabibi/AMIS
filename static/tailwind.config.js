@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["../../AMIS/**/*.{html,js}"],
+  content: ["../../AMIS/**/*.{html,js}",
+  './node_modules/flowbite/**/*.js',
+  ],
   theme: {
     extend: {
       screens: {
@@ -11,5 +13,6 @@ module.exports = {
   plugins: [
     // use form plugins
     require("@tailwindcss/forms"),
+    require('flowbite/plugin'),
   ],
 };

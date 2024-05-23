@@ -1,0 +1,173 @@
+{% extends "base/main.html" %}
+{% block title %}Utilies{% endblock title %}
+{% block content %}
+
+
+  <!-- -------------------------------------------------------------------------------------------------------  -->
+
+  <div class="flex justify-start items-center px-10 py-10 bg-blue-300">
+    <a href="{% url "base:index" %}" class="w-10 h-10 bg-blue-500 flex justify-center items-center rounded shadow print:hidden">
+      <svg class="w-6 h-6 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+      </svg>
+    </a>
+    <h1 class="text-capitalize text-blue-800 text-center text-xl md:text-2xl lg:text-4xl font-bold px-5">ACHRO MIS Utilites</h1>
+    </div>
+    <hr/>
+
+<!-- -------------------------------------------------------------------------------------------------------  -->
+<div class="px-3 my-2 py-3 shadow bg-blue-600">
+    <h2 class="text-xl font-bold text-white">Locations:</h2>
+</div>
+
+<table class="min-w-full divide-y divide-gray-200 overflow-x-auto px-2">
+    <thead class="bg-gray-50">
+        <tr>
+            <th scope="col" class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                ID
+            </th>
+            
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Region
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Province
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Distract
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Village
+            </th>
+  
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      {% for loc in location_object %}
+        <tr class="py-30">
+          <td class="pl-3">
+            <p>{{loc.id}}</p>
+          </td>
+            <td>
+                <div class="text-sm text-gray-900 font-medium"> <a href="{% url "utility:locations" %}">{{loc.region | title }} </a></div>
+            </td>
+            <td>
+                <p>{{loc.province}}</p>
+            </td>
+            <td>
+                <p>{{loc.district}}</p>
+            </td>
+            <td>
+                <p>{{loc.village}}</p>
+            </td>
+            <td>
+                Actions
+            </td>
+
+        </tr>
+        
+        {% empty %}
+            <p>No Location is availible.</p>
+        {% endfor %}
+  
+  
+    </tbody>
+  
+    <tfoot >
+      <tr class="bg-blue-200 m-10 divide-y rounded-md text-gray-800">
+        <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">All Projects: {{count}}</td>
+        <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Completed Projects: {{using}}</td>
+        <td scope="col" class="px-6 py-4 whitespace-nowrap  text-sm font-normal text-center">Processing Projects: {{Processing}}</td>
+      
+        <td colspan="3" class="px-3 py-2 whitespace-nowrap  text-sm font-normal text-center flex justify-center items-center bg-blue-400 rounded m-2">
+            {% if location_object.has_previous %}   
+              <a class="p-1 rounded border text-black bg-white hover:text-white hover:bg-blue-600 hover:border-blue-600" href="?page={{ location_object.previous_page_number }}">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </a>
+            {% endif %}
+              <p class="text-gray-700 px-2">Page {{ location_object.number }} of {{ location_object.paginator.num_pages }}</p>
+            
+              {% if location_object.has_next %}
+                <a class="p-1 rounded border text-black bg-white hover:text-white hover:bg-blue-600 hover:border-blue-600" href="?page={{ location_object.next_page_number }}">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </a>
+              {% endif %}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+<!--  -->
+
+<section class="px-20 mx-auto">
+    
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Region
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Province
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    District
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Village
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loc in location_object %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="px-6 py-4">
+                    {{loc.id}}
+                </td>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                   {{loc.region}}
+                </th>
+                <td class="px-6 py-4">
+                    {{loc.province}}
+                </td>
+                <td class="px-6 py-4">
+                    {{loc.district}}
+                </td>
+                <td class="px-6 py-4">
+                    {{loc.village}}
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            {% empty %}
+                <p>no item found.</p>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+</section>
+
+<section>
+
+
+{% endblock content %}

@@ -11,7 +11,7 @@ class Location(models.Model):
     description = models.TextField(max_length=255, blank=True, null=True, verbose_name="Description")
 
     def __str__(self):
-        return f"{self.region} Region -- {self.province} Province --{self.district}"
+        return f"{self.region} Region- {self.province} Province- {self.district}"
 
     #auto generate the sluge 
     def save(self, *args, **kwargs):

@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+    
+    <title>{% block title %}{% endblock title %} | ACHRO IMS</title>
+    <link href="{% static "css/output.css" %}" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="max-w-[1920px] mx-auto text-black text-sm bg-gray-100">
+  
+   
+  
+    <div class="bg-white">
+   <!-- the top bar her -->
+   <div class="bg-blue-800 print:hidden">
+    <div
+      class="grid grid-flow-auto text-sm font-semibold drop-shadow-sm gap-2 sm:grid-cols-1 md:grid-cols-3 text-white py-2 px-10"
+    >
+      <p class="text-center text-xs md:text-sm">Add: Kushal Khan Mena Kabul AFG</p>
+      <p class="text-center">Mobile: +93 (0) 786 311 363</p>
+      <p class="text-center">Email: info@Achro.org</p>
+    </div>
+  </div>
+
+   
+      <header class="py-4 px-4 sm:px-10 bg-white z-50 relative">
+      <div class="max-w-7xl w-full mx-auto md:hidden flex flex-wrap items-center gap-4">
+        <a href="javascript:void(0)">
+          <img src="{% static 'img/logo.png' %}" alt="logo" class="w-40" />
+        </a>
+
+        <div id="collapseMenu"
+          class="max-lg:hidden lg:!block max-lg:fixed max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0">
+          <button id="toggleClose" class="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-black" viewBox="0 0 320.591 320.591">
+              <path
+                d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
+                data-original="#000000"></path>
+              <path
+                d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
+                data-original="#000000"></path>
+            </svg>
+          </button>
+
+          <ul
+            class="lg:!flex lg:ml-12 lg:space-x-6 max-lg:space-y-6 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+            <li class="max-lg:border-b max-lg:pb-4 px-3 lg:hidden">
+              <a href="javascript:void(0)"><img src="{% static 'img/logo.png' %}" alt="logo" class="w-40" />
+              </a>
+            </li>
+            <li class="max-lg:border-b max-lg:py-2 px-3">
+              <a href="javascript:void(0)"
+                class="hover:text-blue-600 text-blue-600 block font-semibold transition-all">Contact</a>
+            </li>
+
+            <li class="max-lg:border-b max-lg:py-2 px-3 group relative"><a href="javascript:void(0)"
+                class="hover:text-blue-600 block font-semibold transition-all">Feature
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-current inline ml-1.5" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
+                    clip-rule="evenodd" data-original="#000000" />
+                </svg>
+              </a>
+
+              <ul
+                class="absolute shadow-lg bg-white space-y-3 lg:top-5 max-lg:top-8 -left-0 min-w-[250px] z-50 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500">
+                <li class="border-b py-2 "><a href="javascript:void(0)"
+                    class="hover:text-blue-600 font-semibold block transition-all">Foods</a></li>
+                <li class="border-b py-2 ">
+                  <a href="javascript:void(0)" class="hover:text-blue-600 font-semibold block transition-all">Sale</a>
+                </li>
+                <li class="border-b py-2 "><a href="javascript:void(0)"
+                    class="hover:text-blue-600 font-semibold block transition-all">Marketing</a></li>
+                <li class="border-b py-2 "><a href="javascript:void(0)"
+                    class="hover:text-blue-600 font-semibold block transition-all">Investment</a></li>
+              </ul>
+            </li>
+            <li class="max-lg:border-b max-lg:py-2 px-3"><a href="javascript:void(0)"
+                class="hover:text-blue-600 block font-semibold transition-all">Blog</a>
+            </li>
+            <li class="max-lg:border-b max-lg:py-2 px-3"><a href="javascript:void(0)"
+                class="hover:text-blue-600 block font-semibold transition-all">About</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex ml-auto">
+          <button
+            class="bg-blue-100 hover:bg-blue-200 flex items-center transition-all font-semibold rounded-md px-5 py-3">Get
+            started
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] fill-current ml-2" viewBox="0 0 492.004 492.004">
+              <path
+                d="M484.14 226.886 306.46 49.202c-5.072-5.072-11.832-7.856-19.04-7.856-7.216 0-13.972 2.788-19.044 7.856l-16.132 16.136c-5.068 5.064-7.86 11.828-7.86 19.04 0 7.208 2.792 14.2 7.86 19.264L355.9 207.526H26.58C11.732 207.526 0 219.15 0 234.002v22.812c0 14.852 11.732 27.648 26.58 27.648h330.496L252.248 388.926c-5.068 5.072-7.86 11.652-7.86 18.864 0 7.204 2.792 13.88 7.86 18.948l16.132 16.084c5.072 5.072 11.828 7.836 19.044 7.836 7.208 0 13.968-2.8 19.04-7.872l177.68-177.68c5.084-5.088 7.88-11.88 7.86-19.1.016-7.244-2.776-14.04-7.864-19.12z"
+                data-original="#000000" />
+            </svg>
+          </button>
+          <button id="toggleOpen" class="lg:hidden ml-7">
+            <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+    </header>
+
+    <main>
+      {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="mt-28">
+      <div class="px-4 sm:px-10">
+        <div class="grid max-sm:grid-cols-1 max-xl:grid-cols-2 xl:grid-cols-5 gap-8 max-w-7xl mx-auto">
+          <div class="xl:col-span-2">
+            <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo"
+                class="w-40 mb-6" />
+            </a>
+            <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida,
+              mi eu pulvinar cursus, sem elit interdum mauris.</p>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-6">Services</h4>
+            <ul class="space-y-4">
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Web
+                  Development</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Mobile App
+                  Development</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> UI/UX
+                  Design</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Digital Marketing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-semibold mb-6">Resources</h4>
+            <ul class="space-y-4">
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Webinars</a>
+              </li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Ebooks</a>
+              </li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Templates</a>
+              </li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Tutorials</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-semibold mb-4">About Us</h4>
+            <ul class="space-y-4">
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Our Story</a>
+              </li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Mission and
+                  Values</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Team</a></li>
+              <li><a href="javascript:void(0)" class="hover:text-blue-600 flex items-center gap-2"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[10px] -rotate-90"
+                    viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z">
+                    </path>
+                  </svg> Testimonials</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-6" />
+      <p class="text-center mb-6">© 2023<a href="https://readymadeui.com/" target="_blank"
+          class="hover:underline mx-1">ReadymadeUI</a>All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    var toggleOpen = document.getElementById("toggleOpen");
+    var toggleClose = document.getElementById("toggleClose");
+    var collapseMenu = document.getElementById("collapseMenu");
+
+    function handleClick() {
+      if (collapseMenu.style.display === "block") {
+        collapseMenu.style.display = "none";
+      } else {
+        collapseMenu.style.display = "block";
+      }
+    }
+
+    toggleOpen.addEventListener("click", handleClick);
+    toggleClose.addEventListener("click", handleClick);
+
+  </script>
+
+</body>
+
+</html>
