@@ -4,22 +4,16 @@
   Home
 {% endblock %}
 {% block content %}
-  <section class="h-screen">
-    <div class="bg-gray-100 min-h-screen px-6 py-12 font-[sans-serif]">
-      <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
-            <img src="{% static 'img/logo.png' %}" alt="Image" class="rounded-sm object-fill w-full h-full" />
-          </div>
-          <div>
-            <h2 class="text-3xl font-extrabold text-purple-700 mb-4">AFGHAN Community AND Health Rehabilitation Organization</h2>
-            <p class="text-gray-700 text-sm leading-6">The Afghan Community And Health Rehabilitation Organization's DBMS software is an exceptional tool designed to optimize internal operations and boost employee productivity. With intelligent features and unique customization options, this software enables managers to efficiently manage employee information, and execute administrative tasks swiftly and effectively. Empowering staff members to concentrate on their core responsibilities, it ensures smooth and flawless organizational operations simultaneously.</p>
+  <section class="bg-gray-100 min-h-screen m-12 p-10 rounded-xl font-[sans-serif] grid sm:grid-cols-1 lg:grid-cols-2 justify-items-center align-middle">
+    <div class="w-2/3 flex items-center justify-center">
+      <img src="{% static 'img/logo.png' %}" alt="Image" class="rounded-sm object-cover w-full" />
+    </div>
+    <div class="flex justify-center items-center flex-col">
+      <h2 class="text-4xl font-extrabold text-gray-700 sm:pt-10">AFGHAN Community AND Health Rehabilitation Organization</h2>
+      <p class="text-xl mt-10">The Afghan Community And Health Rehabilitation Organization's DBMS software is an exceptional tool designed to optimize internal operations and boost employee productivity. With intelligent features and unique customization options, this software enables managers to efficiently manage employee information, and execute administrative tasks swiftly and effectively. Empowering staff members to concentrate on their core responsibilities, it ensures smooth and flawless organizational operations simultaneously.</p>
 
-            <div class="mt-6">
-              <a href="javascript:void(0);" class="text-purple-600 text-sm font-semibold hover:underline">Get Started</a>
-            </div>
-          </div>
-        </div>
+      <div class="mt-6">
+        <a href="javascript:void(0);" class="text-blue-600 text-sm font-semibold hover:underline">Get Started</a>
       </div>
     </div>
   </section>

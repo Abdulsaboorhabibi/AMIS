@@ -1,32 +1,29 @@
-{% extends "base/main.html" %}
-{% block title%} Create New Project {% endblock title%}
-{% block content%}
-
-<div class="space-x-12">
-
-  <!-- -------------------------------------------------------------------------------------------------------  -->
-
-<div class="flex justify-start items-center px-10 py-10 bg-blue-300">
-    <a href="{% url "mande:index" %}" class="w-10 h-10 bg-blue-500 flex justify-center items-center rounded shadow print:hidden">
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
-      </svg>
-    </a>
-    <h1 class="text-capitalize text-blue-800 text-center text-xl md:text-2xl lg:text-4xl font-bold px-5">Create New Project</h1>
+{% extends 'base/main.html' %}
+{% block title %}
+  Create New Project
+{% endblock %}
+{% block content %}
+  <div class="space-x-12">
+    <div class="flex justify-start items-center px-10 py-10 bg-blue-300">
+      <a href="{% url 'mande:index' %}" class="w-10 h-10 bg-blue-500 flex justify-center items-center rounded shadow print:hidden">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
+        </svg>
+      </a>
+      <h1 class="text-capitalize text-blue-800 text-center text-xl md:text-2xl lg:text-4xl font-bold px-5">Create New Project</h1>
     </div>
-    <hr/>
-  <!-- -------------------------------------------------------------------------------------------------------  -->
-    <form method="POST" action="">
-      {% csrf_token %}
-    <div class=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 my-3  2xl:grid-cols-4">
-        {{form}}
-
+    <hr />
+    <div>
+      <form method="POST" action="">
+        {% csrf_token %}
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 my-3 2xl:grid-cols-4">
+          {{ form }}
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
     </div>
-
-</div>
-<div class="flex flex-row justify-end px-20">
-  <input type="submit" value="Create" class="inline-flex items-center px-10 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-</div>
-</form>
-
-{% endblock content%}
+    <div class="flex flex-row justify-end px-20">
+      <input type="submit" value="Create" class="inline-flex items-center px-10 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
+    </div>
+  </div>
+{% endblock %}

@@ -15,26 +15,29 @@ class Utilties(TemplateView):
         context = super().get_context_data(**kwargs)
         locations = models.Location.objects.all()
         location_paginator = Paginator(locations, 5)
-        page_number = self.request.GET.get('page')
-        context['location_object'] = location_paginator.get_page(page_number)
+        page_number = self.request.GET.get("page")
+        context["location_object"] = location_paginator.get_page(page_number)
 
         sector = models.Sector.objects.all()
         sector_paginator = Paginator(sector, 5)
-        page_number = self.request.GET.get('page')
-        context['sector_object'] = location_paginator.get_page(page_number)
+        page_number = self.request.GET.get("page")
+        context["sector_object"] = location_paginator.get_page(page_number)
 
         donor = models.Donor.objects.all()
         donor_paginator = Paginator(donor, 5)
-        page_number = self.request.GET.get('page')
-        context['donor_object'] = location_paginator.get_page(page_number)
+        page_number = self.request.GET.get("page")
+        context["donor_object"] = location_paginator.get_page(page_number)
 
         return context
-    
+
+
 class Locations(ListView):
     model = models.Location
 
+
 class Donors(ListView):
     model = models.Donor
+
 
 class Sectors(ListView):
     model = models.Sector
