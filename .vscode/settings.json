@@ -3,7 +3,7 @@
     "python.formating.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length",
-        "79"
+        "120"
     ],
     "python.linting.enable": true,
     "python.lintin.lintOnSave": true,
@@ -20,4 +20,9 @@
         "editor.formatOnSave": true
     },
     "editor.wordWrap": "wordWrapColumn",
+    "editor.rulers": [
+        79,
+        89,
+        99
+    ]
 }
